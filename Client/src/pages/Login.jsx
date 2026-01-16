@@ -11,7 +11,7 @@ const Login = () => {
     try {
       const response = await axois.post("http://localhost:8000/api/auth/login", {email, password});
       console.log(response.data)
-      
+
       setEmail('')
       setPassword('')
     } 
@@ -31,6 +31,7 @@ const Login = () => {
                   <input type="email" 
                     placeholder='Enter Email' 
                     className='w-full px-3 py-2 border'
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
               </div>
@@ -39,6 +40,7 @@ const Login = () => {
                 <input type="password" 
                   placeholder='Enter Password' 
                   className='w-full px-3 py-2 border'
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
