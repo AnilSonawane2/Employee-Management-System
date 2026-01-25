@@ -45,27 +45,27 @@ const Login = () => {
   }
 
   return (
-    <div className='flex flex-col items-center h-screen justify-center bg-gradient-to-b from-red-500 from-50% to-red-400 to-50% space-y-6'>
-      <h2 className='text-4xl font-bold text-white'>Employee Management System</h2>
-        <div className='border shadow p-6 w-80 bg-white'>
-          <h2 className='text-2xl font-bold mb-4'>Login</h2>
+    <div className='flex flex-col items-center h-screen justify-center bg-gradient-to-r from-[#ff9068] to-[#ff4b1f] to-50% space-y-6'>
+      <h2 className='text-4xl font-bold text-white text-center'>Employee Management System</h2>
+        <div className='border shadow p-6 w-80 bg-white rounded-3xl'>
+          <h2 className='text-2xl font-bold mb-4 text-center'>Login</h2>
             {error && <p className='text-red-500'>{error}</p>}
             <form onSubmit={handleSubmit}>
               <div className='mb-4'>
-                  <label htmlFor="email" className='block text-gray-700'>Email</label>
+                  <label htmlFor="email" className='block text-gray-700 font-semibold'>Email</label>
                   <input type="email"                             /* email input */
                     placeholder='Enter Email' 
-                    className='w-full px-3 py-2 border'
+                    className='w-full px-3 py-2 border border-orange-400 rounded-lg'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
               </div>
               <div className='mb-4'>
-                <label htmlFor="password" className='block text-gray-700'>Password</label>
+                <label htmlFor="password" className='block text-gray-700 font-semibold'>Password</label>
                 <input type="password"                            /*  password input */
                   placeholder='Enter Password' 
-                  className='w-full px-3 py-2 border'
+                  className='w-full px-3 py-2 border rounded-lg border-orange-400'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -79,7 +79,7 @@ const Login = () => {
                 <a href="#" className='text-teal-600'>Forget Password?</a>
               </div>
               <div className='mb-4'>
-                <button type='submit' className='w-full bg-red-500 text-white py-2'>Login</button> 
+                <button type='submit' className='w-full bg-[#ff4b1f] text-white py-2 rounded-xl font-bold'>Login</button> 
               </div>
           </form>
         </div>
