@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axois from 'axios'
+import axios from 'axios'
 import { useAuth } from '../context/authContext'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axois.post("http://localhost:8000/api/auth/login", {email, password});
+      const response = await axios.post("http://localhost:8000/api/auth/login", {email, password});
       console.log(response.data)
 
       setEmail('')
@@ -45,8 +45,8 @@ const Login = () => {
   }
 
   return (
-    <div className='flex flex-col items-center h-screen justify-center bg-gradient-to-b from-teal-600 from-50% to-gray-100 to-50% space-y-6'>
-      <h2 className='font-sevillana text-4xl  text-white'>Employee Management System</h2>
+    <div className='flex flex-col items-center h-screen justify-center bg-gradient-to-b from-red-500 from-50% to-red-400 to-50% space-y-6'>
+      <h2 className='text-4xl font-bold text-white'>Employee Management System</h2>
         <div className='border shadow p-6 w-80 bg-white'>
           <h2 className='text-2xl font-bold mb-4'>Login</h2>
             {error && <p className='text-red-500'>{error}</p>}
@@ -79,7 +79,7 @@ const Login = () => {
                 <a href="#" className='text-teal-600'>Forget Password?</a>
               </div>
               <div className='mb-4'>
-                <button type='submit' className='w-full bg-teal-600 text-white py-2'>Login</button> 
+                <button type='submit' className='w-full bg-red-500 text-white py-2'>Login</button> 
               </div>
           </form>
         </div>
