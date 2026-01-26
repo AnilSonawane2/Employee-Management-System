@@ -5,20 +5,30 @@ const userContext = createContext()
 const authContext = ({children}) => {
 
     const [user, setUser] = useState(null)
-    const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const verifyUser = async () => {
             try{
-                const response = await axios.get('http://localhost:8000/api/auth/verify')
+                const response = await axios.get('http://localhost:8000/api/auth/verify',{
+                    header: {
+                        "Authorization" : `Bearer ${token}`
+                    }
+                })
                 if(response.data.success){
                     setUser(response.data.user)
+                }
+                else{
+                    setUser(null)
                 }
             }
             catch(error){
                 if(error.response && !error.response.data.error){
-                    navigate('/login')
+                    setUser(null)
                 }
+            }
+            finally{
+                setLoading(false)
             }
         }
         verifyUser() // <-- to verify user
@@ -34,7 +44,7 @@ const authContext = ({children}) => {
     }
 
   return (
-    <userContext.Provider value={{user, login, logout}}>
+    <userContext.Provider value={{user, login, logout, loading}}>
         {children}
     </userContext.Provider>
   )

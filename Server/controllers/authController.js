@@ -45,4 +45,11 @@ const login = async (req, res) => {
     }
 }
 
-export default login
+const verify = async (req,res) => { // using the req user that was attached in middleware
+    return res.status(200).json({
+        success: true,
+        user : req.user
+    })
+}
+
+export default {login, verify}
