@@ -10,7 +10,7 @@ const verifyUser = async (req, res, next) => {   // Middleware to check verified
             })
         }
 
-        const decoded = jwt.verify(token, ProcessingInstruction.env.JWT_KEY)  // decode that token with JWT-key
+        const decoded = jwt.verify(token, process.env.JWT_KEY)  // decode that token with JWT-key
         if(!decoded){
             return res.status(404).json({   
                 success: false,
